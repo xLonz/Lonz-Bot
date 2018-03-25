@@ -17,7 +17,7 @@ bot.on("message", async message => {
   let args =  messageArray.slice(1);
 
   if(cmd === `${prefix}Hi`){
-    return message.channel.send("Hello! Welcome to UNION :15:");
+    return message.channel.send("Hello, Welcome to the official Union Aura Kingdom Mobile Discord! Please enjoy your stay! If you require assistance, please tag @LEADER @DEPUTY @ELITE regarding your questions and concerns.");
   }
 
   
