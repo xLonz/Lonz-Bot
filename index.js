@@ -16,8 +16,8 @@ bot.on("message", async message => {
   let cmd = messageArray[0];
   let args =  messageArray.slice(1);
 
-  if(cmd === `${prefix}hello`){
-    return message.channel.send("Hello!");
+  if(cmd === `${prefix}Hi`){
+    return message.channel.send("Hello! Welcome to UNION :15:");
   }
 
   
