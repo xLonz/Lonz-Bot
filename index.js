@@ -1,7 +1,9 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
+const fs = ("fs");
 const bot = new Discord.Client();
 let xp = require("./xp.json");
+let purple = botconfig.purple;
 
 
 bot.on("ready", async () => {
@@ -24,6 +26,31 @@ bot.on("guildMemberRemove", async member => {
  
 });
 
+let xpAdd = Math.floor(Math.random() *7) + 8;
+
+if(!xp[message.author.id]){
+  xp[message.author.id] = {
+    xp: 0,
+    level: 1
+  };
+}
+
+let curxp = xp[message.author.id].xp;
+let curlvl = xp[message.author.id].level;
+let nxtLvlXp = curlvl * 200;
+let difference = nxtLvlXp - curxp;
+  
+  let lvlEmbed = new Discord.RichEmbed()
+  .setAuthor(message.channel.username)
+  .setColor(purple)
+  .addField("Level", curlvl, true)
+  .addField("XP", curxp, true)
+  .setFooter(`${difference} XP till nxt level up`, message.author.displayAvatarURL);
+  
+  
+  return message.channel.send(lvlEmbed).then(msg => {msg.delete(5000)});
+}
+ 
 bot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
