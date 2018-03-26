@@ -1,6 +1,7 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const fs = require("fs");
+const superagent = require("superagent");
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 
@@ -49,6 +50,19 @@ bot.on("message", async message => {
     .addField("Total Members", message.guild.memberCount);
     
     return message.channel.send(serverembed);
+  }
+  
+  if(=cmd === `${prefix}serverinfo`){
+    
+  let {body} = await superagent
+  .get(`https://random.dog/woof.json`);
+  
+  let dogembed = new Discord.RichEmbed()
+  .setColor("#ff9900")
+  .setTitle("Doggo")
+  .setImage(body.url);
+  
+  return message.channel.send(dogembed);
   }
   
 });
