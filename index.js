@@ -47,7 +47,7 @@ bot.on("message", async message => {
    
   if(cmd === `${prefix}doggo`){
     
-    let {body} = await superagent
+    let body = await superagent
     .get(`https://random.dog/woof.json`);
    
      let dogembed = new Discord.RichEmbed()
