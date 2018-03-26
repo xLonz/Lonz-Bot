@@ -4,6 +4,11 @@ const bot = new Discord.Client();
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 
+fs.readdir("/commands/", (err, files) => {
+  
+  
+});
+
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity("Aura Kingdom Mobile", {type: "PLAYING"});
