@@ -75,6 +75,18 @@ bot.on("message", async message => {
     return message.channel.send(dogembed);
   }
   
+  if(cmd === `${prefix}cat`){
+    
+    let {body} = await superagent
+    .get(`https://random.cat/meow`);
+    
+    let catembed = new Discord.RichEmbed()
+    .setColor("#ff9900")
+    .setTitle("Cat :cat:")
+    .setImage(body.file);
+    
+    return message.channel.send(catembed);
+  }
 });
 
 bot.login(process.env.BOT_TOKEN);
