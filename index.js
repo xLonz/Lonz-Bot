@@ -62,7 +62,7 @@ bot.on("message", async message => {
    
   if(cmd === `${prefix}avatar`){
     
-    let uicon = message.user.displayAvatarURL;
+    let aicon = message.user.displayAvatarURL;
     let avatarembed = new Discord.RichEmbed()
     .setDescription("Member Information")
     .setColor("#15f153")
