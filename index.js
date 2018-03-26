@@ -19,6 +19,18 @@ bot.on("message", async message => {
   if(cmd === `${prefix}ping`){
     return message.channel.send("Hello, Welcome to the official Union Aura Kingdom Mobile Discord! Please enjoy your stay! If you require assistance, please tag @LEADER @DEPUTY @ELITE regarding your questions and concerns.");
   }
+ 
+ if(cmd === `${prefix}botinfo`){
+   
+   let bicon = bot.user.displayAvatarURL;
+   let botembed = new Discord.RichEmbed()
+   .setDescription("Bot Information")
+   .setColor("#15f153")
+   .setThumbnail(bicon)
+   .addField("Bot Name", bot.user.username);
+   
+   return message.channel.send(botembed);
+ }
   
   if(cmd === `${prefix}serverinfo`){
     
