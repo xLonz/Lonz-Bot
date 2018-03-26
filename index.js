@@ -12,10 +12,10 @@ bot.on("ready", async () => {
 bot.on("guildMemberAdd", async member => {
   console.log(`${member.id} joined the server.`);
   
-  let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
-  welcomechannel.send(`LOOK OUT EVERYONE! ${member} has joined the party!`);
+  member.addRole(member.guild.roles.find("name", "UNDER COUNSELING"));
   
-   member.addRole(member.guild.roles.find("name", "UNDER COUNSELING"));
+  let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
+  welcomechannel.send(`LOOK OUT EVERYONE! ${member} has joined the party!`)
 });
 
 bot.on("guildMemberRemove", async member => {
