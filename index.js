@@ -62,6 +62,19 @@ bot.on("message", async message => {
     return message.channel.send(serverembed);
   }
   
+  if(cmd === `${prefix}dog`){
+    
+    let {body} = await superagent
+    .get(`https://random.dog/woof.json`);
+    
+    let dogembed = new Discord.RichEmbed()
+    .setColor("#ff9900")
+    .setTitle("Doggo :dog:")
+    .setImage(body.url);
+    
+    return message.channel.send(dogembed);
+  }
+  
 });
 
 bot.login(process.env.BOT_TOKEN);
