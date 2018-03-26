@@ -3,6 +3,8 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
+
+
 fs.readdir("../commands/", (err, files) => {
   
   if(err) console.log(err);
@@ -14,7 +16,7 @@ fs.readdir("../commands/", (err, files) => {
   }
   
   jsfile.forEach((f, i) => {
-    let props = require(`.//commands/${f}`);
+    let props = require(`../commands/${f}`);
     console.log(`{f} loaded!`);
     bot.commands.set(props.help.name, props);
 
@@ -54,7 +56,6 @@ bot.on("message", async message => {
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if (commandfile) commandfile.run(bot,message,args);
   
-
   if(cmd === `${prefix}ping`){
     return message.channel.send("Hello, Welcome to the official Union Aura Kingdom Mobile Discord! Please enjoy your stay! If you require assistance, please tag @LEADER @DEPUTY @ELITE regarding your questions and concerns.");
   }
@@ -84,33 +85,6 @@ bot.on("message", async message => {
     return message.channel.send(serverembed);
   }
    
-  if(cmd === `${prefix}doggo`){
-    
-    let {body} = await superagent
-    .get(`https://random.dog/woof.json`);
-   
-     let dogembed = new Discord.RichEmbed()
-    .setColor("#ff9900")
-    .setTitle("Doggo")
-    .setImage(body.url);
-  
-  return message.channel.send(dogembed);
-  }
-  
-  if(cmd === `${prefix}cat`){
-    
-    let {body} = await superagent
-    .get(`https://random.cat/meow`);
-   
-     let catembed = new Discord.RichEmbed()
-    .setColor("#ff9900")
-    .setTitle("Cat")
-    .setImage(body.file);
-  
-  return message.channel.send(catembed);
-  }
-  
-  
 });
 
 bot.login(process.env.BOT_TOKEN);
