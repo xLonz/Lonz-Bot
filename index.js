@@ -1,5 +1,6 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
+cons fs = require("fs");
 const bot = new Discord.Client();
 let purple = botconfig.purple;
 
@@ -35,19 +36,23 @@ if(!xp[message.author.id]){
 
 let curxp = xp[message.author.id].xp;
 let curlvl = xp[message.author.id].level;
-let nxtLvlXp = curlvl * 200;
-let difference = nxtLvlXp - curxp;
+let nxtLvl = xp[message.author.id].level * 200;
+xp[message.author.id].xp = curxp + xpAdd;
+if(nxtLvl <= xp[message.author.id].xp){
+  xp[message.author.id].level = curlvl + 1;
   
-  let lvlEmbed = new Discord.RichEmbed()
-  .setAuthor(message.channel.username)
+  let lvlup = new Discord.RichEmbed()
+  .setTitle("Level Up!")
   .setColor(purple)
-  .addField("Level", curlvl, true)
-  .addField("XP", curxp, true)
-  .setFooter(`${difference} XP till nxt level up`, message.author.displayAvatarURL);
+  .addField("New Level", curlvl + 1);
   
+   message.channel.send(lvlEmbed).then(msg => {msg.delete(5000)});
   
-  return message.channel.send(lvlEmbed).then(msg => {msg.delete(5000)});
 }
+fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
+  if(err) console.log(err)
+  
+});
  
 bot.on("message", async message => {
   if(message.author.bot) return;
