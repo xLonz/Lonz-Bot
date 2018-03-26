@@ -60,6 +60,18 @@ bot.on("message", async message => {
     return message.channel.send(serverembed);
   }
    
+  if(cmd === `${prefix}doggo`){
+    
+    let dogembed = new Discord.RichEmbed()
+    let {body} = await superagent
+    .get(`https://random.dog/woof.json`);
+    .setColor("#ff9900")
+    .setTitle("Doggo")
+    .setImage(body.url);
+    
+    
+    return message.channel.send(dogembed);
+  }
   
 });
 
