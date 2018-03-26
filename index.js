@@ -6,8 +6,6 @@ bot.commands = new Discord.Collection();
 
 fs.readdir("/commands/", (err, files) => {
   
-});
-
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity("Aura Kingdom Mobile", {type: "PLAYING"});
@@ -69,6 +67,8 @@ bot.on("message", async message => {
     return message.channel.send(serverembed);
   }
    
+  
+});
 });
 
 bot.login(process.env.BOT_TOKEN);
