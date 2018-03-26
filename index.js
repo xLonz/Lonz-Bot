@@ -16,13 +16,13 @@ bot.on("message", async message => {
   let cmd = messageArray[0];
   let args =  messageArray.slice(1);
 
-  if(cmd === `${prefix}Hi`){
+  if(cmd === `${prefix}ping`){
     return message.channel.send("Hello, Welcome to the official Union Aura Kingdom Mobile Discord! Please enjoy your stay! If you require assistance, please tag @LEADER @DEPUTY @ELITE regarding your questions and concerns.");
   }
   
  if(cmd === `${prefix}botinfo`){
    
-   let (bicon) = bot.user.displayAvatarURL;
+   let bicon = bot.user.displayAvatarURL;
    let botembed = new Discord.RichEmbed()
    .setDescription("Bot Information")
    .setColor("#15f153")
