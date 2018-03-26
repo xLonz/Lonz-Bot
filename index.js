@@ -1,5 +1,6 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
+const superagent = require("superagent");
 const bot = new Discord.Client();
 
 bot.on("ready", async () => {
@@ -45,6 +46,18 @@ bot.on("message", async message => {
     return message.channel.send(serverembed);
   }
 
+  if(cmd === `${prefix}doggo`){
+    
+    let {body} = await superagent
+    .get(`https://random.dog/woof.json`);
+    
+    let dogembed = new Discord.RichEmbed()
+    .setColor("#ff9900")
+    .setTitle("Doggo")
+    .setImage(body.url);
+    
+    return message.channel.send(dogembed);
+  }
   
 });
 
