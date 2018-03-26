@@ -13,6 +13,7 @@ bot.on("guildMemberAdd", async member => {
   console.log(`${member.id} joined the server.`);
   
   let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
+  member.addRole(member.guild.roles.find("name", "UNDER COUNSELING"));
   welcomechannel.send(`LOOK OUT EVERYONE! ${member} has joined the party!`)
 });
 
@@ -21,13 +22,6 @@ bot.on("guildMemberRemove", async member => {
   
   let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
   welcomechannel.send(`GOOD RIDDANCE! ${member} has bailed on the server!`);
-  
-});
-
-  bot.on("guildMemberAdd", async member => {
-  console.log(`${member.id} joined the server.`); 
-  member.addRole(member.guild.roles.find("name", "UNDER COUNSELING"));
- 
 });
  
 bot.on("message", async message => {
