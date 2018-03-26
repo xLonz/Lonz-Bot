@@ -1,8 +1,7 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-cons fs = require("fs");
 const bot = new Discord.Client();
-let purple = botconfig.purple;
+
 
 
 bot.on("ready", async () => {
@@ -23,35 +22,6 @@ bot.on("guildMemberRemove", async member => {
   let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
   welcomechannel.send(`GOOD RIDDANCE! ${member} has bailed on the server!`);
  
-});
-
-let xpAdd = Math.floor(Math.random() *7) + 8;
-
-if(!xp[message.author.id]){
-  xp[message.author.id] = {
-    xp: 0,
-    level: 1
-  };
-}
-
-let curxp = xp[message.author.id].xp;
-let curlvl = xp[message.author.id].level;
-let nxtLvl = xp[message.author.id].level * 200;
-xp[message.author.id].xp = curxp + xpAdd;
-if(nxtLvl <= xp[message.author.id].xp){
-  xp[message.author.id].level = curlvl + 1;
-  
-  let lvlup = new Discord.RichEmbed()
-  .setTitle("Level Up!")
-  .setColor(purple)
-  .addField("New Level", curlvl + 1);
-  
-   message.channel.send(lvlEmbed).then(msg => {msg.delete(5000)});
-  
-}
-fs.writeFile("./xp.json", JSON.stringify(xp), (err) => {
-  if(err) console.log(err)
-  
 });
  
 bot.on("message", async message => {
