@@ -34,7 +34,13 @@ bot.on("message", async message => {
   let args =  messageArray.slice(1);
   
   if(cmd === `${prefix}ping`){
-    return message.channel.send("Hello, Welcome to the official Union Aura Kingdom Mobile Discord! Please enjoy your stay! If you require assistance, please tag @LEADER @DEPUTY @ELITE regarding your questions and concerns.");
+    
+    let pingembed = new Discord.RichEmbed()
+    .setDescrition("Welcome to the official Union Aura Kingdom Mobile Discord!")
+    .setColor("#15f153")
+    .addField("@LEADER @DEPUTY @ELITE if you need assistance!");
+    
+    return message.channel.send(pingembed);
   }
  
  if(cmd === `${prefix}botinfo`){
