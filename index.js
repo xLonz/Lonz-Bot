@@ -45,7 +45,7 @@ bot.on("message", async message => {
     return message.channel.send(serverembed);
   }
    
-  if(cmd === `${prefix}serverinfo`){
+  if(cmd === `${prefix}doggo`){
     
     let {body} = await superagent
     .get(`https://random.dog/woof.json`);
