@@ -87,6 +87,20 @@ bot.on("message", async message => {
     
     return message.channel.send(catembed);
   }
+  
+  if(cmd === `${prefix}avatar`){
+    
+    let msg = await message.channel.send("Generating Avatar...");
+    let target = message.mentions.users.first() || message.author;
+    
+    await message.channel.send({files: [
+                                {
+                                attachment: target.displayAvatarURL,
+                                name: "avatar.png"
+                                }
+                                ]});
+    msg.delete();
+  }                
 });
 
 bot.login(process.env.BOT_TOKEN);
