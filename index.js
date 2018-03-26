@@ -1,11 +1,25 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const superagent = require("superagent");
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity("Aura Kingdom Mobile", {type: "PLAYING"});
+});
+
+bot.on("guildMemberAdd", async member => {
+  console.log(`${member.id} joined the server.`);
+  
+  let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
+  welcomechannel.send(`LOOK OUT EVERYONE! ${member} has joined the party!`);
+});
+
+bot.on("guildMemberRemove", async member => {
+  console.log(`${member.id} left the server.`);
+  
+  let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
+  welcomechannel.send(`GOOD RIDDANCE! ${member} has bailed on the server!`);
+ 
 });
 
 bot.on("message", async message => {
