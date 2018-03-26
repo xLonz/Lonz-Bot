@@ -6,6 +6,16 @@ bot.commands = new Discord.Collection();
 
 fs.readdir("/commands/", (err, files) => {
   
+  let jsfile = files.filter(f => f.split(".").pop() === "js")
+  if (jsfile.length <= 0){
+  }
+  
+  jsfile.forEach((f, i) => {
+    let props = require(`/commands/${f}`);
+    bot.commands.set(props,help.name, props);
+    
+  });
+  
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity("Aura Kingdom Mobile", {type: "PLAYING"});
