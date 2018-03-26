@@ -1,7 +1,7 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
-const superagent = require("superagent");
 const bot = new Discord.Client();
+const superagent = require("superagent");
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -58,6 +58,20 @@ bot.on("message", async message => {
   
   return message.channel.send(dogembed);
   }
+  
+  if(cmd === `${prefix}cat`){
+    
+    let {body} = await superagent
+    .get(`https://random.cat/meow`);
+   
+     let catembed = new Discord.RichEmbed()
+    .setColor("#ff9900")
+    .setTitle("Cat")
+    .setImage(body.file);
+  
+  return message.channel.send(catembed);
+  }
+  
   
 });
 
