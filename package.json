@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.3.2",
+    "snekfetch": "^3.6.4",
     "superagent": "^3.8.2"
     
   }
