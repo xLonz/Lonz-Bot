@@ -1,6 +1,8 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client();
+const superagent = require("superagent");
+
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -47,7 +49,7 @@ bot.on("message", async message => {
    
   if(cmd === `${prefix}doggo`){
     
-    let body = await superagent
+    let {body} = await superagent
     .get(`https://random.dog/woof.json`);
    
      let dogembed = new Discord.RichEmbed()
