@@ -37,8 +37,7 @@ bot.on("message", async message => {
     
     let pingembed = new Discord.RichEmbed()
     .setDescrition("Welcome to the official Union Aura Kingdom Mobile Discord!")
-    .setColor("#15f153")
-    .addField("@LEADER @DEPUTY @ELITE if you need assistance!");
+    .setColor("#15f153");
     
     return message.channel.send(pingembed);
   }
