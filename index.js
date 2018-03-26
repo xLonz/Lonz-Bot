@@ -1,5 +1,6 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
+const superagent = require("superagent");
 const bot = new Discord.Client();
 
 bot.on("ready", async () => {
@@ -58,18 +59,6 @@ bot.on("message", async message => {
     .addField("Total Members", message.guild.memberCount);
     
     return message.channel.send(serverembed);
-  }
-   
-  if(cmd === `${prefix}avatar`){
-    
-    let micon = member.guild.displayAvatarURL;
-    let avatarembed = new Discord.RichEmbed()
-    .setDescription("Member Information")
-    .setColor("#15f153")
-    .setThumbnail(uicon)
-    .addField("Username", message.user.username);
-    
-    return message.channel.send(avatarembed);
   }
   
 });
