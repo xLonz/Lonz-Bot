@@ -2,7 +2,7 @@ const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const url = require("url");
-const superagent = require("superagent");
+var superagent = require('superagent');
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
