@@ -45,16 +45,16 @@ bot.on("message", async message => {
     
     return message.channel.send(serverembed);
   }
-  
-  let {body} = await superagent
-  .get(`https://random.dog/woof.json`);
-  
-  if(cmd === `${prefix}serverinfo`){
    
-  let dogembed = new Discord.RichEmbed()
-  .setColor("#ff9900")
-  .setTitle("Doggo")
-  .setImage(body.url);
+  if(cmd === `${prefix}serverinfo`){
+    
+    let {body} = await superagent
+    .get(`https://random.dog/woof.json`);
+   
+     let dogembed = new Discord.RichEmbed()
+    .setColor("#ff9900")
+    .setTitle("Doggo")
+    .setImage(body.url);
   
   return message.channel.send(dogembed);
   }
