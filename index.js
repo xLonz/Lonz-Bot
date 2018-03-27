@@ -16,24 +16,23 @@ let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
 welcomechannel.send(`LOOK OUT EVERYONE! ${member} has joined the party!`)
 });
 
-//bot.on("guildMemberRemove", async member => {
-//  console.log(`${member.id} left the server.`);
+bot.on("guildMemberRemove", async member => {
+console.log(`${member.id} left the server.`);
   
- // let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
- // welcomechannel.send(`GOOD RIDDANCE! ${member} has bailed on the server!`);
-  
-//});
+let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
+welcomechannel.send(`GOOD RIDDANCE! ${member} has bailed on the server!`);
+});
  
-//bot.on("message", async message => {
- // if(message.author.bot) return;
-  //if(message.channel.type === "dm") return;
+bot.on("message", async message => {
+if(message.author.bot) return;
+if(message.channel.type === "dm") return;
   
- // let prefix = botconfig.prefix;
-  //let messageArray = message.content.split(" ");
-//  let cmd = messageArray[0];
-  //let args =  messageArray.slice(1);
+let prefix = botconfig.prefix;
+let messageArray = message.content.split(" ");
+let cmd = messageArray[0];
+let args =  messageArray.slice(1);
   
- // });
+});
              
  // if(cmd === `${prefix}ping`){
    // return message.channel.send("Hello, Welcome to the official Union Aura Kingdom Mobile Discord! Please enjoy your stay! If you require assistance, please tag @LEADER @DEPUTY @ELITE regarding your questions and concerns.")
