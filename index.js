@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const superagent = require("superagent");
 const bot = new Discord.Client();
 let cooldown = new Set();
-let cdseconds = 5;
+let cdseconds = 86400;
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -35,7 +35,7 @@ let prefix = botconfig.prefix;
   if(!message.content.startsWith(prefix)) return;
   if(cooldown.has(message.author.id)){
     message.delete();
-  return message.reply("You have to wait 5 seconds between commands.")
+  return message.reply("You have to wait 1 day.")
   }
   cooldown.add(message.author.id);
 let messageArray = message.content.split(" ");
