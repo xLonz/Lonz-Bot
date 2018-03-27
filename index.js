@@ -119,8 +119,8 @@ bot.on("message", async message => {
   let attendancechannel = message.guild.channels.find(`name`, "attendance");
   if (!attendancechannel) return message.channel.send("Couldn't find attendance channel.");
   
-  message.delete().catch(O_o=>{});
-  attendancechannel.send(attendanceEmbed);
+  
+  message.attendancechannel.send(attendanceEmbed);
   
   }
   
