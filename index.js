@@ -126,7 +126,8 @@ if(cmd === `${prefix}ping`){
   
    setTimeout(() => {
     cooldown.delete(message.author.id)
-  }, cdseconds * 1000
+    cdseconds * 1000 
+   }
   
 });
 
