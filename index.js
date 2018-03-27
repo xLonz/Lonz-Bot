@@ -2,6 +2,8 @@ const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const superagent = require("superagent");
 const bot = new Discord.Client();
+let cooldown = new Set();
+let cdseconds = 5;
 
 
 bot.on("ready", async () => {
@@ -30,9 +32,24 @@ bot.on("message", async message => {
   if(message.channel.type === "dm") return;
   
   let prefix = botconfig.prefix;
+  if(!message.content.startsWith(prefix)) return;
+  if(cooldown.has(message.author.id)){
+    message.delete();
+    return message.reply("You have to wait 5 seconds between commands.")
+    
+  }
+  
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args =  messageArray.slice(1);
+  
+  setTimeout(() =>{
+    cooldown.delete(message.author)
+    
+  }, cdseconds * 1000)
+    
+  });
+             
  
   if(cmd === `${prefix}ping`){
     return message.channel.send("Hello, Welcome to the official Union Aura Kingdom Mobile Discord! Please enjoy your stay! If you require assistance, please tag @LEADER @DEPUTY @ELITE regarding your questions and concerns.")
