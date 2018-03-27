@@ -116,22 +116,22 @@ if(cmd === `${prefix}ping`){
   }           
   
   
-  if(cmd === `${prefix}present`){
+  //if(cmd === `${prefix}present`){
     
-  let attendanceEmbed = new Discord.RichEmbed()
-  .setDescription("Attendance")
-  .setColor("#15f153")
-  .addField("Member Present", `${message.author}`)
-  .addField("Time", message.createdAt)
+  //let attendanceEmbed = new Discord.RichEmbed()
+  //.setDescription("Attendance")
+  //.setColor("#15f153")
+  //.addField("Member Present", `${message.author}`)
+  //.addField("Time", message.createdAt)
   
-  let attendancechannel = message.guild.channels.find(`name`, "union-attendance");
-  if (!attendancechannel) return message.channel.send("Couldn't find attendance channel.");
+  //let attendancechannel = message.guild.channels.find(`name`, "union-attendance");
+  //if (!attendancechannel) return message.channel.send("Couldn't find attendance channel.");
   
   
-  message.delete().catch(O_o=>{});
-  attendancechannel.send(attendanceEmbed);
+  //message.delete().catch(O_o=>{});
+  //attendancechannel.send(attendanceEmbed);
     
-  }
+  //}
     
 });
 
