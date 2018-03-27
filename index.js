@@ -120,7 +120,7 @@ bot.on("message", async message => {
   if (!attendancechannel) return message.channel.send("Couldn't find attendance channel.");
   
   
-  message.channel.send(attendanceEmbed);
+  message.attendancechannel.send(attendanceEmbed);
   
   }
   
