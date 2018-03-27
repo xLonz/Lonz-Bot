@@ -1,8 +1,8 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const superagent = require("superagent");
-const fs = require ("fs");
 const bot = new Discord.Client();
+const fs = require ("fs");
 bot.commands = new Discord.Collection();
 
 bot.on("ready", async () => {
