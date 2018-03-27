@@ -6,7 +6,7 @@ const bot = new Discord.Client();
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
-  bot.user.setActivity("*present for Attendance", {type: "PLAYING"});
+  bot.user.setActivity("*present for Attendance", {type: "WATCHING"});
 });
 
 bot.on("guildMemberAdd", async member => {
