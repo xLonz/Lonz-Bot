@@ -5,9 +5,7 @@ const fs = require ("fs");
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 
-fs.readdir("./commands/", (err, files) = > {
-  
-});       
+fs.readdir("./commands/");
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
