@@ -106,14 +106,10 @@ bot.on("message", async message => {
   
   if(cmd === `${prefix}present`){
     
-  //let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
- 
   let attendanceEmbed = new Discord.RichEmbed()
   .setDescription("Attendance")
   .setColor("#15f153")
-  //.addField("Reported User", `${rUser} with ID: ${rUser.id}`)
-  .addField("Member Present", `${message.author} with ID: ${message.author.id}`)
-  //.addField("Channel", message.channel)
+  .addField("Member Present", `${message.author}`)
   .addField("Time", message.createdAt)
   
   let attendancechannel = message.guild.channels.find(`name`, "union-attendance");
