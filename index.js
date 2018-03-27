@@ -34,7 +34,6 @@ if(message.channel.type === "dm") return;
 let prefix = botconfig.prefix;
   if(!message.content.startsWith(prefix)) return;
   if(cooldown.has(message.author.id)){
-    message.delete();
   return message.reply("You have to wait 5 seconds between commands.")
   
 let messageArray = message.content.split(" ");
