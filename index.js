@@ -37,6 +37,7 @@ let prefix = botconfig.prefix;
     message.delete();
   return message.reply("You have to wait 5 seconds between commands.")
   }
+  cooldown.add(message.author.id);
 let messageArray = message.content.split(" ");
 let cmd = messageArray[0];
 let args =  messageArray.slice(1);
