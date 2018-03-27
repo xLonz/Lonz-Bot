@@ -2,8 +2,8 @@ const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const superagent = require("superagent");
 const bot = new Discord.Client();
-let cooldown = new Set();
-let cdseconds = 86400;
+//let cooldown = new Set();
+//let cdseconds = 86400;
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -32,19 +32,19 @@ if(message.author.bot) return;
 if(message.channel.type === "dm") return;
   
 let prefix = botconfig.prefix;
-  if(!message.content.startsWith(prefix)) return;
-  if(cooldown.has(message.author.id)){
-    message.delete();
-  return message.reply("You have to wait 1 day.")
-  }
-  cooldown.add(message.author.id);
+  //if(!message.content.startsWith(prefix)) return;
+  //if(cooldown.has(message.author.id)){
+    //message.delete();
+  //return message.reply("You have to wait 1 day.")
+  //}
+  //cooldown.add(message.author.id);
 let messageArray = message.content.split(" ");
 let cmd = messageArray[0];
 let args =  messageArray.slice(1);
     
-    setTimeout(() => {
-      cooldown.delete(message.author.id)
-      }, cdseconds * 1000)
+    //setTimeout(() => {
+      //cooldown.delete(message.author.id)
+      //}, cdseconds * 1000)
   
 if(cmd === `${prefix}ping`){
    return message.channel.send("Hello, Welcome to the official Union Aura Kingdom Mobile Discord! Please enjoy your stay! If you require assistance, please tag @LEADER @DEPUTY @ELITE regarding your questions and concerns.")
