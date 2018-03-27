@@ -6,8 +6,7 @@ const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) = > {
-
-  if(err) console.log(err);
+  
 });       
 
 bot.on("ready", async () => {
