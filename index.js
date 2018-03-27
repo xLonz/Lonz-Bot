@@ -9,12 +9,6 @@ fs.readdir("./commands/", (err, files) = > {
 
   if(err) console.log(err);
 });       
-           
-   jsfile.forEach((f, i) => {
-   let props = require(`./commands/${f}`);
-   bot.commands.set(props.help.name, props);
-  
-  });
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
