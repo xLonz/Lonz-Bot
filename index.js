@@ -40,6 +40,9 @@ let prefix = botconfig.prefix;
 let messageArray = message.content.split(" ");
 let cmd = messageArray[0];
 let args =  messageArray.slice(1);
+    
+    setTimeout(() => {
+      cooldown.delete(message.author.id)
   
 if(cmd === `${prefix}ping`){
    return message.channel.send("Hello, Welcome to the official Union Aura Kingdom Mobile Discord! Please enjoy your stay! If you require assistance, please tag @LEADER @DEPUTY @ELITE regarding your questions and concerns.")
@@ -126,6 +129,9 @@ if(cmd === `${prefix}ping`){
   message.delete().catch(O_o=>{});
   attendancechannel.send(attendanceEmbed);
   
+    
+  }, cdseconds * 1000)
+    
   }
   
   }
