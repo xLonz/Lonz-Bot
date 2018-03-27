@@ -116,7 +116,7 @@ bot.on("message", async message => {
   //.addField("Channel", message.channel)
   .addField("Time", message.createdAt)
   
-  let attendancechannel = message.guild.channels.find(`name`, "attendance");
+  let attendancechannel = message.guild.channels.find(`name`, "union-attendance");
   if (!attendancechannel) return message.channel.send("Couldn't find attendance channel.");
   
   
