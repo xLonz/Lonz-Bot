@@ -2,6 +2,8 @@ const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const superagent = require("superagent");
 const bot = new Discord.Client();
+let cooldown = new Set();
+let cdseconds = 5;
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -30,6 +32,7 @@ if(message.author.bot) return;
 if(message.channel.type === "dm") return;
   
 let prefix = botconfig.prefix;
+
 let messageArray = message.content.split(" ");
 let cmd = messageArray[0];
 let args =  messageArray.slice(1);
