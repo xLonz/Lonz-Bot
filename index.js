@@ -35,7 +35,7 @@ let prefix = botconfig.prefix;
   if(!message.content.startsWith(prefix)) return;
   if(cooldown.has(message.author.id)){
   return message.reply("You have to wait 5 seconds between commands.")
-  
+  }
 let messageArray = message.content.split(" ");
 let cmd = messageArray[0];
 let args =  messageArray.slice(1);
@@ -130,8 +130,7 @@ if(cmd === `${prefix}ping`){
   attendancechannel.send(attendanceEmbed);
     
   }
-  
-  }
+    
 });
 
 bot.login(process.env.BOT_TOKEN);
