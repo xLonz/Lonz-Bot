@@ -7,7 +7,7 @@ const bot = new Discord.Client();
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
-  bot.user.setActivity("*present for Attendance", {type: "WATCHING"});
+  bot.user.setActivity("*Aura Kingdom Mobile", {type: "PLAYING"});
   
 });
  
