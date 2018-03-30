@@ -82,7 +82,7 @@ if(cmd === `${prefix}ping`){
   if(cmd === `${prefix}cat`){
     
    let {body} = await superagent
-   .get(`https://random.cat/meow`);
+   .get(`https://aws.random.cat/meow`);
     
    let catembed = new Discord.RichEmbed()
     .setColor("#ff9900")
