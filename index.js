@@ -89,11 +89,11 @@ if(cmd === `${prefix}ping`){
     .setTitle("Cat :cat:")
     .setImage(body.file);
     
-    let cat = member.guild.channels.find(`name`, "cats");
-    if (!cat) return message.channel.send("Couldn't find cats channel.");
+    let catschannel = member.guild.channels.find(`name`, "cats");
+    if (!catschannel) return message.channel.send("Couldn't find cats channel.");
     
     message.delete().catch(O_o=>{});
-    cat.send(catembed);
+    catschannel.send(catembed);
   }
   
   if(cmd === `${prefix}avatar`){
