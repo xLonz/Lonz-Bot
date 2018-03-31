@@ -89,6 +89,9 @@ if(cmd === `${prefix}ping`){
     .setTitle("Cat :cat:")
     .setImage(body.file);
     
+    let cat = member.guild.channels.find(`name`, "cats");
+    if (!cat) return message.channel.send("Couldn't find attendance channel.");
+    
     return message.channel.send(catembed);
   }
   
