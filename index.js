@@ -90,9 +90,10 @@ if(cmd === `${prefix}ping`){
     .setImage(body.file);
     
     let cat = member.guild.channels.find(`name`, "cats");
-    if (!cat) return message.channel.send("Couldn't find attendance channel.");
+    if (!cat) return message.channel.send("Couldn't find cats channel.");
     
-    return message.channel.send(catembed);
+    message.delete().catch(O_o=>{});
+    cat.send(catembed);
   }
   
   if(cmd === `${prefix}avatar`){
