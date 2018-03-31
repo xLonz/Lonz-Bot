@@ -76,7 +76,7 @@ if(cmd === `${prefix}ping`){
     .setTitle("Doggo :dog:")
     .setImage(body.url);
     
-    let dogschannel = member.guild.channels.find(`name`, "dogs");
+    let dogschannel = message.guild.channels.find(`name`, "dogs");
     if (!dogschannel) return message.channel.send("Couldn't find cats channel.");
     
     message.delete().catch(O_o=>{});
@@ -93,7 +93,7 @@ if(cmd === `${prefix}ping`){
     .setTitle("Cat :cat:")
     .setImage(body.file);
     
-    let catschannel = member.guild.channels.find(`name`, "cats");
+    let catschannel = message.guild.channels.find(`name`, "cats");
     if (!catschannel) return message.channel.send("Couldn't find cats channel.");
     
     message.delete().catch(O_o=>{});
