@@ -141,6 +141,6 @@ let args =  messageArray.slice(1);
     
   //}
     
-//});
+});
 
 bot.login(process.env.BOT_TOKEN);
