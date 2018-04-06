@@ -7,7 +7,7 @@ let cdseconds = 86400;
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
-  bot.user.setActivity("^present", {type: "WATCHING"});
+  bot.user.setActivity("^present for Attendance", {type: "WATCHING"});
   
 });
  
@@ -139,7 +139,7 @@ let args =  messageArray.slice(1);
       cooldown.delete(message.author.id)
       }, cdseconds * 1000)
     
-  }
+  
     
 });
 
