@@ -114,32 +114,32 @@ let args =  messageArray.slice(1);
   //}           
   
   
-  //if(cmd === `${prefix}present`){
+  if(cmd === `${prefix}present`){
   
-  //if(cooldown.has(message.author.id)){
-    //message.delete();
-  //return message.reply("You have to wait 1 day.")
-  //}
-  //cooldown.add(message.author.id);
+  if(cooldown.has(message.author.id)){
+    message.delete();
+  return message.reply("You have to wait 1 day.")
+  }
+  cooldown.add(message.author.id);
     
-  //let attendanceEmbed = new Discord.RichEmbed()
-  //.setDescription("Attendance")
-  //.setColor("#15f153")
-  //.addField("Member Present", `${message.author}`)
-  //.addField("Time", message.createdAt)
+  let attendanceEmbed = new Discord.RichEmbed()
+  .setDescription("Attendance")
+  .setColor("#15f153")
+  .addField("Member Present", `${message.author}`)
+  .addField("Time", message.createdAt)
   
-  //let attendancechannel = message.guild.channels.find(`name`, "dn-attendance");
-  //if (!attendancechannel) return message.channel.send("Couldn't find attendance channel.");
+  let attendancechannel = message.guild.channels.find(`name`, "dn-attendance");
+  if (!attendancechannel) return message.channel.send("Couldn't find attendance channel.");
   
   
-  //message.delete().catch(O_o=>{});
-  //attendancechannel.send(attendanceEmbed);
+  message.delete().catch(O_o=>{});
+  attendancechannel.send(attendanceEmbed);
   
-  //setTimeout(() => {
-  //    cooldown.delete(message.author.id)
-  //    }, cdseconds * 1000)
+  setTimeout(() => {
+      cooldown.delete(message.author.id)
+      }, cdseconds * 1000)
     
-  //}
+  }
     
 });
 
