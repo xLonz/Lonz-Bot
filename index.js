@@ -139,7 +139,7 @@ let args =  messageArray.slice(1);
       cooldown.delete(message.author.id)
       }, cdseconds * 1000)
     
-  
+  }
     
 });
 
