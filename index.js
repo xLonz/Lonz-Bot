@@ -7,23 +7,23 @@ let cdseconds = 86400;
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
-  bot.user.setActivity("Aura Kingdom Mobile", {type: "PLAYING"});
+  bot.user.setActivity("^present", {type: "WATCHING"});
   
 });
  
-bot.on("guildMemberAdd", async member => {
-console.log(`${member.id} joined the server.`);
+//bot.on("guildMemberAdd", async member => {
+//console.log(`${member.id} joined the server.`);
   
-member.addRole(member.guild.roles.find("name", "COUNSELING"));
+//member.addRole(member.guild.roles.find("name", "COUNSELING"));
 
-let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
+let welcomechannel = member.guild.channels.find(`name`, "welcome");
 welcomechannel.send(`LOOK OUT EVERYONE! ${member} has joined the party!`)
 });
 
 bot.on("guildMemberRemove", async member => {
 console.log(`${member.id} left the server.`);
   
-let welcomechannel = member.guild.channels.find(`name`, "welcome_leave");
+let welcomechannel = member.guild.channels.find(`name`, "leave");
 welcomechannel.send(`GOOD RIDDANCE! ${member} has bailed on the server!`);
 });
  
@@ -52,66 +52,66 @@ if(cmd === `${prefix}ping`){
   return message.channel.send(botembed);
 }
   
- if(cmd === `${prefix}serverinfo`){
+ //if(cmd === `${prefix}serverinfo`){
     
-  let sicon = message.guild.iconURL;
-  let serverembed = new Discord.RichEmbed()
-  .setDescription("Server Information")
-  .setColor("#15f153")
-  .setThumbnail(sicon)
-  .addField("Server Name", message.guild.name)
-  .addField("Total Members", message.guild.memberCount);
+  //let sicon = message.guild.iconURL;
+  //let serverembed = new Discord.RichEmbed()
+  //.setDescription("Server Information")
+  //.setColor("#15f153")
+  //.setThumbnail(sicon)
+  //.addField("Server Name", message.guild.name)
+  //.addField("Total Members", message.guild.memberCount);
     
-    return message.channel.send(serverembed);
-  }
+    //return message.channel.send(serverembed);
+  //}
   
-  if(cmd === `${prefix}dog`){
+  //if(cmd === `${prefix}dog`){
     
-    let {body} = await superagent
-    .get(`https://random.dog/woof.json`);
+    //let {body} = await superagent
+    //.get(`https://random.dog/woof.json`);
     
-    let dogembed = new Discord.RichEmbed()
-    .setColor("#ff9900")
-    .setTitle("Doggo :dog:")
-    .setImage(body.url);
+    //let dogembed = new Discord.RichEmbed()
+    //.setColor("#ff9900")
+    //.setTitle("Doggo :dog:")
+    //.setImage(body.url);
     
-    let dogschannel = message.guild.channels.find(`name`, "dogs");
-    if (!dogschannel) return message.channel.send("Couldn't find cats channel.");
+    //let dogschannel = message.guild.channels.find(`name`, "dogs");
+    //if (!dogschannel) return message.channel.send("Couldn't find cats channel.");
     
-    message.delete().catch(O_o=>{});
-    dogschannel.send(dogembed);
-  }
+    //message.delete().catch(O_o=>{});
+    //dogschannel.send(dogembed);
+  //}
   
-  if(cmd === `${prefix}cat`){
+  //if(cmd === `${prefix}cat`){
     
-   let {body} = await superagent
-   .get(`https://aws.random.cat/meow`);
+   //let {body} = await superagent
+   //.get(`https://aws.random.cat/meow`);
     
-   let catembed = new Discord.RichEmbed()
-    .setColor("#ff9900")
-    .setTitle("Cat :cat:")
-    .setImage(body.file);
+   //let catembed = new Discord.RichEmbed()
+    //.setColor("#ff9900")
+    //.setTitle("Cat :cat:")
+    //.setImage(body.file);
     
-    let catschannel = message.guild.channels.find(`name`, "cats");
-    if (!catschannel) return message.channel.send("Couldn't find cats channel.");
+    //let catschannel = message.guild.channels.find(`name`, "cats");
+    //if (!catschannel) return message.channel.send("Couldn't find cats channel.");
     
-    message.delete().catch(O_o=>{});
-    catschannel.send(catembed);
-  }
+    //message.delete().catch(O_o=>{});
+    //catschannel.send(catembed);
+  //}
   
-  if(cmd === `${prefix}avatar`){
+  //if(cmd === `${prefix}avatar`){
     
-    let msg = await message.channel.send("Generating Avatar...");
-    let target = message.mentions.users.first() || message.author;
+    //let msg = await message.channel.send("Generating Avatar...");
+    //let target = message.mentions.users.first() || message.author;
     
-    await message.channel.send({files: [
-                                {
-                                attachment: target.displayAvatarURL,
-                                name: "avatar.png"
-                                }
-                                ]});
-    msg.delete();
-  }           
+    //await message.channel.send({files: [
+    //                            {
+    //                            attachment: target.displayAvatarURL,
+    //                            name: "avatar.png"
+    //                            }
+    //                            ]});
+    //msg.delete();
+  //}           
   
   
   if(cmd === `${prefix}present`){
@@ -128,7 +128,7 @@ if(cmd === `${prefix}ping`){
   .addField("Member Present", `${message.author}`)
   .addField("Time", message.createdAt)
   
-  let attendancechannel = message.guild.channels.find(`name`, "union-attendance");
+  let attendancechannel = message.guild.channels.find(`name`, "dn-attendance");
   if (!attendancechannel) return message.channel.send("Couldn't find attendance channel.");
   
   
