@@ -7,25 +7,25 @@ const bot = new Discord.Client();
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
-  bot.user.setActivity("^present for Attendance", {type: "WATCHING"});
+  bot.user.setActivity("!present for Attendance", {type: "WATCHING"});
   
 });
  
-bot.on("guildMemberAdd", async member => {
-console.log(`${member.id} joined the server.`);
+//bot.on("guildMemberAdd", async member => {
+//console.log(`${member.id} joined the server.`);
   
 //member.addRole(member.guild.roles.find("name", "COUNSELING"));
 
-let welcomechannel = member.guild.channels.find(`name`, "welcome");
-welcomechannel.send(`LOOK OUT EVERYONE! ${member} has joined the party!`)
-});
+//let welcomechannel = member.guild.channels.find(`name`, "welcome");
+//welcomechannel.send(`LOOK OUT EVERYONE! ${member} has joined the party!`)
+//});
 
-bot.on("guildMemberRemove", async member => {
-console.log(`${member.id} left the server.`);
+//bot.on("guildMemberRemove", async member => {
+//console.log(`${member.id} left the server.`);
   
-let welcomechannel = member.guild.channels.find(`name`, "leave");
-welcomechannel.send(`GOOD RIDDANCE! ${member} has bailed on the server!`);
-});
+//let welcomechannel = member.guild.channels.find(`name`, "leave");
+//welcomechannel.send(`GOOD RIDDANCE! ${member} has bailed on the server!`);
+//});
  
 bot.on("message", async message => {
 if(message.author.bot) return;
@@ -115,7 +115,8 @@ let args =  messageArray.slice(1);
   
   
   if(cmd === `${prefix}present`){
-  
+  let dnmemberRole = message.guild.roles.find("name", "PA Members");
+   if(message.member.roles.has(dnmemberRole.id)) {
   if(cooldown.has(message.author.id)){
     message.delete();
   return message.reply("You have to wait 1 day.")
@@ -134,6 +135,9 @@ let args =  messageArray.slice(1);
   
   message.delete().catch(O_o=>{});
   attendancechannel.send(attendanceEmbed);
+     } else {
+     message.reply("You ****, you don't have the permission to use this command.");
+   }
   
   setTimeout(() => {
       cooldown.delete(message.author.id)
